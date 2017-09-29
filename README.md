@@ -1,0 +1,1 @@
+<p align="center"><img src="https://despark.com/public/images/despark-logo.svg"></p>

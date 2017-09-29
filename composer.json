@@ -1,0 +1,35 @@
+{
+    "name": "despark/igni-seo",
+    "description": "Igni CMS SEO Package",
+    "keywords": [
+        "framework",
+        "laravel",
+        "despark",
+        "cms",
+        "core",
+        "seo"
+    ],
+    "authors": [
+        {
+            "name": "Anton Geshev",
+            "email": "ageshev@despark.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/support": "5.4.*|5.5.*",
+        "doctrine/dbal": "^2.5"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Despark\\Cms\\Seo\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
