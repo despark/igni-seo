@@ -31,5 +31,12 @@
             "Despark\\Cms\\Seo\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Despark\\Cms\\Seo\\Providers\\IgniSeoServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "stable"
 }
