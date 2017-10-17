@@ -31,7 +31,7 @@ trait HasSeo
 
     public function getImageOptions($type)
     {
-        if ($type === 'facebook_image') {
+        if ($type === 'twitter_image') {
             return [
                 'thumbnails' => [
                     'admin' => [
@@ -40,8 +40,8 @@ trait HasSeo
                         'type' => 'resize',
                     ],
                     'normal' => [
-                        'width' => 1200,
-                        'height' => 630,
+                        'width' => 1024,
+                        'height' => 512,
                         'type' => 'resize',
                     ],
                 ],
@@ -56,8 +56,8 @@ trait HasSeo
                     'type' => 'resize',
                 ],
                 'normal' => [
-                    'width' => 1024,
-                    'height' => 512,
+                    'width' => 1200,
+                    'height' => 630,
                     'type' => 'resize',
                 ],
             ],

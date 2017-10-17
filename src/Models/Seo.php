@@ -25,6 +25,7 @@ class Seo extends Model
         'twitter_description' => 'max:156',
         'facebook_image' => 'image|max:5000',
         'twitter_image' => 'image|max:5000',
+        'seo_social_image' => 'image|max:5000',
     ];
 
     public function validate()
