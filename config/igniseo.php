@@ -449,4 +449,48 @@
                   'wrung',
             ],
         ],
+        'image_fields' => [
+              'seo_social_image' => [
+                  'thumbnails' => [
+                      'admin' => [
+                          'width' => 400,
+                          'height' => 210,
+                          'type' => 'resize',
+                      ],
+                      'normal' => [
+                          'width' => 600,
+                          'height' => 315,
+                          'type' => 'resize',
+                      ],
+                  ],
+              ],
+              'seo_facebook' => [
+                  'thumbnails' => [
+                      'admin' => [
+                          'width' => 400,
+                          'height' => 210,
+                          'type' => 'resize',
+                      ],
+                      'normal' => [
+                          'width' => 600,
+                          'height' => 315,
+                          'type' => 'resize',
+                      ],
+                  ],
+              ],
+              'seo_twitter' => [
+                  'thumbnails' => [
+                      'admin' => [
+                          'width' => 400,
+                          'height' => 210,
+                          'type' => 'resize',
+                      ],
+                      'normal' => [
+                          'width' => 512,
+                          'height' => 256,
+                          'type' => 'resize',
+                      ],
+                  ],
+              ],
+          ],
     ];
