@@ -54,24 +54,22 @@ class HtmlHelper
             }
         }
 
-        if (! $hasSubheading) {
-            $results['subheadings'] = [
-                'text' => 'The text does not contain any subheadings. Add at least one subheading.',
-                'color' => $this->colors['red'],
-            ];
-        }
-
-        if ($badSubHeadings) {
+        if ($badSubHeadings && $hasSubheading) {
             $pluralWords = [str_plural('subheading', $badSubHeadings), $badSubHeadings > 1 ? 'are' : 'is'];
 
             $results['subheadings'] = [
                 'text' => $badSubHeadings.' '.$pluralWords[0].' '.$pluralWords[1].' followed by more than the recommended maximum of 300 words. Try to insert another subheading.',
                 'color' => $color['subheading'],
             ];
-        } else {
+        } elseif (! $badSubHeadings && $hasSubheading) {
             $results['subheadings'] = [
                 'text' => 'The amount of words following each of the subheadings doesn\'t exceed the recommended maximum of 300 words, which is great.',
                 'color' => $color['subheading'],
+            ];
+        } elseif (! $hasSubheading) {
+            $results['subheadings'] = [
+                'text' => 'The text does not contain any subheadings. Add at least one subheading.',
+                'color' => $this->colors['red'],
             ];
         }
 
