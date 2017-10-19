@@ -8,7 +8,7 @@
 
 ## Installation
 
-1. Run `composer require despark/igni-seo`.
+1. Run `composer require despark/igni-seo`
 
 2. Add igniCMS SEO module service providers before the _application service providers_ in the `config/app.php`, as shown below **(Optional for Laravel 5.5)** 
 
@@ -27,12 +27,11 @@
    ...
   ```
   
-3. Run the migrate command to add our seo table.
-```shell
-    php artisan migrate
-```
+3. Run ```php artisan vendor:publish --class"Despark\Cms\Seo\Providers\IgniSeoServiceProvider::class"```
+  
+4. Run ```php artisan migrate``` to add our seo table to your database.
 
-4. In your entity file add the following code in your ```adminFormsField```:
+5. In your entity file add the following code in your ```adminFormsField```:
 ```php
    'content' => [
       'type' => 'wysiwyg',
@@ -42,9 +41,40 @@
     'seo' => [
       'type' => 'seo',
       'readability' => true, // true|false
-      'actionVerb' => 'slug', // This field is optional. Use it only if your route parameter is not generated from the slug column
-      'readabilityColumn' => 'content', // This field is optional. Use it only if your column for readability is not content
+      'actionVerb' => 'show', // This field is optional. Use it only if your route action verb is not show
+      'readabilityColumn' => 'content', // This field is optional. Use it only if your column, that is going to be checked for readability, is not called content
      ],
+```
+
+6. Add our Traits and Interfaces to your Model.
+```php
+use Despark\Cms\Admin\Interfaces\UploadImageInterface;
+use Despark\Cms\Admin\Traits\AdminImage;
+use Despark\Cms\Models\AdminModel;
+use Despark\Cms\Seo\Contracts\Seoable;
+use Despark\Cms\Seo\Traits\HasSeo;
+
+class Article extends AdminModel implements Seoable, UploadImageInterface
+{
+    use HasSeo;
+    use AdminImage;
+
+    protected $table = 'articles';
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+    ];
+
+    protected $rules = [
+        'title' => 'required',
+        'slug' => 'required',
+        'content' => 'required',
+    ];
+
+    protected $identifier = 'article';
+}
 ```
 
 ## Copyright and License
