@@ -46,7 +46,7 @@
      ],
 ```
 
-6. Add our Traits and Contracts to your Model.
+6. Add our Traits and Interfaces to your Model.
 ```php
 use Despark\Cms\Admin\Interfaces\UploadImageInterface;
 use Despark\Cms\Admin\Traits\AdminImage;
