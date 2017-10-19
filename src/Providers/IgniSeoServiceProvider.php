@@ -14,7 +14,9 @@ class IgniSeoServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->publishes([
+            __DIR__.'/../../database/migrations' => database_path('migrations'),
+        ], 'migrations');
         $this->mergeConfigFrom(__DIR__.'/../../config/igniseo.php', 'igniseo');
         $this->app->bind(Seoable::class, Seo::class);
     }

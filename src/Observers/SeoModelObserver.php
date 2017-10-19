@@ -50,10 +50,6 @@ class SeoModelObserver
         ]);
 
         $model->seo()->save($this->seoModel);
-
-        $model->saveSeoImages('seo_social_image');
-        $model->saveSeoImages('facebook_image');
-        $model->saveSeoImages('twitter_image');
     }
 
     /**
