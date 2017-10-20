@@ -27,7 +27,7 @@
    ...
   ```
   
-3. Run ```php artisan vendor:publish --class"Despark\Cms\Seo\Providers\IgniSeoServiceProvider::class"```
+3. Run ```php artisan vendor:publish --provider="Despark\Cms\Seo\Providers\IgniSeoServiceProvider"```. If you are using Laravel 5.3|5.4, replace ```--provider``` with ```--class```.
   
 4. Run ```php artisan migrate``` to add our seo table to your database.
 
