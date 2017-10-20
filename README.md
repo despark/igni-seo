@@ -38,11 +38,13 @@
       'label' => 'Content',
       'additional_options' => ['init_instance_callback' => 'wysiwygTextChanged'],
     ],
+    'readability' => [
+      'type' => 'readability',
+      'for' => 'content', // This field is optional. Use it only if your column, that is going to be checked for readability, is not called content
+     ],
     'seo' => [
       'type' => 'seo',
-      'readability' => true, // true|false
-      'actionVerb' => 'show', // This field is optional. Use it only if your route action verb is not show
-      'readabilityColumn' => 'content', // This field is optional. Use it only if your column, that is going to be checked for readability, is not called content
+      'actionVerb' => 'show', // This field is optional. Use it only if your route action verb is not called show
      ],
 ```
 

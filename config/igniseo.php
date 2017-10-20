@@ -453,8 +453,8 @@
               'seo_social_image' => [
                   'thumbnails' => [
                       'admin' => [
-                          'width' => 400,
-                          'height' => 210,
+                          'width' => 200,
+                          'height' => 200,
                           'type' => 'resize',
                       ],
                       'normal' => [
@@ -467,8 +467,8 @@
               'seo_facebook' => [
                   'thumbnails' => [
                       'admin' => [
-                          'width' => 400,
-                          'height' => 210,
+                          'width' => 200,
+                          'height' => 200,
                           'type' => 'resize',
                       ],
                       'normal' => [
@@ -481,8 +481,8 @@
               'seo_twitter' => [
                   'thumbnails' => [
                       'admin' => [
-                          'width' => 400,
-                          'height' => 210,
+                          'width' => 200,
+                          'height' => 200,
                           'type' => 'resize',
                       ],
                       'normal' => [
