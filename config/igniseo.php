@@ -450,20 +450,6 @@
             ],
         ],
         'image_fields' => [
-              'seo_social_image' => [
-                  'thumbnails' => [
-                      'admin' => [
-                          'width' => 200,
-                          'height' => 200,
-                          'type' => 'resize',
-                      ],
-                      'normal' => [
-                          'width' => 600,
-                          'height' => 315,
-                          'type' => 'resize',
-                      ],
-                  ],
-              ],
               'facebook_image' => [
                   'thumbnails' => [
                       'admin' => [
