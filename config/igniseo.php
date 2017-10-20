@@ -464,7 +464,7 @@
                       ],
                   ],
               ],
-              'seo_facebook' => [
+              'facebook_image' => [
                   'thumbnails' => [
                       'admin' => [
                           'width' => 200,
@@ -478,7 +478,7 @@
                       ],
                   ],
               ],
-              'seo_twitter' => [
+              'twitter_image' => [
                   'thumbnails' => [
                       'admin' => [
                           'width' => 200,
