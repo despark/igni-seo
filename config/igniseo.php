@@ -450,7 +450,7 @@
             ],
         ],
         'image_fields' => [
-              'seo_social_image' => [
+              'facebook_image' => [
                   'thumbnails' => [
                       'admin' => [
                           'width' => 200,
@@ -464,21 +464,7 @@
                       ],
                   ],
               ],
-              'seo_facebook' => [
-                  'thumbnails' => [
-                      'admin' => [
-                          'width' => 200,
-                          'height' => 200,
-                          'type' => 'resize',
-                      ],
-                      'normal' => [
-                          'width' => 600,
-                          'height' => 315,
-                          'type' => 'resize',
-                      ],
-                  ],
-              ],
-              'seo_twitter' => [
+              'twitter_image' => [
                   'thumbnails' => [
                       'admin' => [
                           'width' => 200,
