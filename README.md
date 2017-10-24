@@ -79,6 +79,12 @@ class Article extends AdminModel implements Seoable, UploadImageInterface
 }
 ```
 
+## Get your SEO data
+
+```php
+  $seoData = $model->seo;
+```
+
 ## Copyright and License
 
 igniCMS was written by Despark for the Laravel framework and is released under the MIT License. See the LICENSE file for details.
