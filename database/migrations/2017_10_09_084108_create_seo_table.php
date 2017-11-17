@@ -15,7 +15,7 @@ class CreateSeoTable extends IgniMigration
             $table->increments('id');
             $table->unsignedInteger('resource_id');
             $table->string('resource_model');
-            $table->string('meta_description');
+            $table->string('meta_description')->nullable();
             $table->string('facebook_title')->nullable();
             $table->string('facebook_description')->nullable();
             $table->string('twitter_title')->nullable();

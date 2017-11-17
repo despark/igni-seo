@@ -12,39 +12,25 @@ use Wa72\HtmlPageDom\HtmlPageCrawler;
 
 class SeoReadabilityController extends Controller
 {
-    protected $textStatistics;
-
-    protected $html;
-
-    protected $dom;
-
-    protected $results;
-
-    protected $text;
-
-    public function __construct(SeoReadabilityRequest $request)
-    {
-        $this->html = $request->get('html');
-        $this->text = HtmlPageCrawler::create($this->html)->text();
-        $this->textStatistics = new TS\TextStatistics();
-        $this->dom = new \DOMDocument();
-        $this->dom->preserveWhiteSpace = false;
-        $this->dom->loadHTML($this->html);
-    }
-
     /**
      * Check readability score.
      *
      * @return array
      */
-    public function check(FleschKincaidReadingEaseHelper $fleschKincaidReadingEaseHelper, HtmlHelper $htmlHelper, SentencesHelper $sentencesHelper)
+    public function check(SeoReadabilityRequest $request, FleschKincaidReadingEaseHelper $fleschKincaidReadingEaseHelper, HtmlHelper $htmlHelper, SentencesHelper $sentencesHelper)
     {
-        $fleschKincaidReadingEaseResult = $this->textStatistics->fleschKincaidReadingEase($this->text);
-        $this->results['fleschKincaidReadingEaseResult'] = $fleschKincaidReadingEaseHelper->getTextResult($fleschKincaidReadingEaseResult);
-        $this->results['html'] = $htmlHelper->getTextResult($this->dom);
-        $this->results['sentences'] = $sentencesHelper->getTextResults($this->text);
-        $this->results['showTextLengthError'] = strlen($this->text) <= 50 ? true : false;
+        $html = $request->get('html');
+        $text = HtmlPageCrawler::create($html)->text();
+        $textStatistics = new TS\TextStatistics();
+        $dom = new \DOMDocument();
+        $dom->preserveWhiteSpace = false;
+        $dom->loadHTML($html);
+        $fleschKincaidReadingEaseResult = $textStatistics->fleschKincaidReadingEase($text);
+        $results['fleschKincaidReadingEaseResult'] = $fleschKincaidReadingEaseHelper->getTextResult($fleschKincaidReadingEaseResult);
+        $results['html'] = $htmlHelper->getTextResult($dom);
+        $results['sentences'] = $sentencesHelper->getTextResults($text);
+        $results['showTextLengthError'] = strlen($text) <= 50 ? true : false;
 
-        return $this->results;
+        return $results;
     }
 }
