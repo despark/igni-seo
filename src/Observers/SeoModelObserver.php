@@ -39,15 +39,16 @@ class SeoModelObserver
             $this->seoModel = $model->seo;
         }
 
-        $input = request()->all();
+        $input = request()->only(['meta_description', 'facebook_title', 'facebook_description', 'twitter_title', 'twitter_description']);
 
-        $this->seoModel->setRawAttributes([
-            'meta_description' => $input['meta_description'],
-            'facebook_title' => $input['facebook_title'] ?? $this->seoModel->facebook_title,
-            'facebook_description' => $input['facebook_description'] ?? $this->seoModel->facebook_description,
-            'twitter_title' => $input['twitter_title'] ?? $this->seoModel->twitter_title,
-            'twitter_description' => $input['twitter_description'] ?? $this->seoModel->twitter_description,
-        ]);
+        // For Laravel 5.3
+        foreach ($input as $key => $value) {
+            if (! $value) {
+                unset($input[$key]);
+            }
+        }
+
+        $this->seoModel->setRawAttributes($input);
 
         $model->seo()->save($this->seoModel);
     }
