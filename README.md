@@ -36,15 +36,16 @@
    'content' => [
       'type' => 'wysiwyg',
       'label' => 'Content',
-      'additional_options' => ['init_instance_callback' => 'wysiwygTextChanged'],
     ],
     'readability' => [
       'type' => 'readability',
       'for' => 'content', // This field is optional. Use it only if your column, that is going to be checked for readability, is not called content
+      'editorPosition' => 0, // The position of the desired editor, if you have more than one wysiwygs
      ],
     'seo' => [
       'type' => 'seo',
-      'actionVerb' => 'show', // This field is optional. Use it only if your route action verb is not called show
+      'routeName' => 'articles.show',
+      'meta_title_field' => 'title', // This field is optional. Use it only if your column, which is going to be checked is not called title
      ],
 ```
 
