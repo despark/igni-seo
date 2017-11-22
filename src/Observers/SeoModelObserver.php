@@ -44,7 +44,7 @@ class SeoModelObserver
         // For Laravel 5.3
         foreach ($input as $key => $value) {
             if (! $value) {
-                unset($input[$key]);
+                $input[$key] = null;
             }
         }
 
