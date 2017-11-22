@@ -10,6 +10,7 @@ class Seo extends Model
     protected $table = 'seo';
 
     protected $fillable = [
+        'meta_title',
         'meta_description',
         'facebook_title',
         'facebook_description',
@@ -18,6 +19,7 @@ class Seo extends Model
     ];
 
     protected $rules = [
+        'meta_title' => 'max:60',
         'meta_description' => 'max:156',
         'facebook_title' => 'max:60',
         'facebook_description' => 'max:156',

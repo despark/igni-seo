@@ -39,7 +39,7 @@ class SeoModelObserver
             $this->seoModel = $model->seo;
         }
 
-        $input = request()->only(['meta_description', 'facebook_title', 'facebook_description', 'twitter_title', 'twitter_description']);
+        $input = request()->only(['meta_title', 'meta_description', 'facebook_title', 'facebook_description', 'twitter_title', 'twitter_description']);
 
         // For Laravel 5.3
         foreach ($input as $key => $value) {

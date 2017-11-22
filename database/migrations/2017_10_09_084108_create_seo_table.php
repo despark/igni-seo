@@ -15,11 +15,12 @@ class CreateSeoTable extends IgniMigration
             $table->increments('id');
             $table->unsignedInteger('resource_id');
             $table->string('resource_model');
-            $table->string('meta_description')->nullable();
-            $table->string('facebook_title')->nullable();
-            $table->string('facebook_description')->nullable();
-            $table->string('twitter_title')->nullable();
-            $table->string('twitter_description')->nullable();
+            $table->string('meta_title')->nullable()->default(null);
+            $table->string('meta_description')->nullable()->default(null);
+            $table->string('facebook_title')->nullable()->default(null);
+            $table->string('facebook_description')->nullable()->default(null);
+            $table->string('twitter_title')->nullable()->default(null);
+            $table->string('twitter_description')->nullable()->default(null);
             $table->timestamps();
         });
     }
