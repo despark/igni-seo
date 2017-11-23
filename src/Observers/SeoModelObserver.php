@@ -39,18 +39,22 @@ class SeoModelObserver
             $this->seoModel = $model->seo;
         }
 
+        $isEmpty = true;
+
         $input = request()->only(['meta_title', 'meta_description', 'facebook_title', 'facebook_description', 'twitter_title', 'twitter_description']);
 
-        // For Laravel 5.3
         foreach ($input as $key => $value) {
             if (! $value) {
                 $input[$key] = null;
+            } else {
+                $isEmpty = false;
             }
         }
 
-        $this->seoModel->setRawAttributes($input);
-
-        $model->seo()->save($this->seoModel);
+        if (! $isEmpty || $model->seo) {
+            $this->seoModel->setRawAttributes($input);
+            $model->seo()->save($this->seoModel);
+        }
     }
 
     /**
