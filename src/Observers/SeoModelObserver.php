@@ -3,15 +3,31 @@
 namespace Despark\Cms\Seo\Observers;
 
 use Despark\Cms\Seo\Contracts\Seoable;
+use Despark\Cms\Seo\Models\Seo;
 
 /**
  * Class SeoModelObserver.
  */
 class SeoModelObserver
 {
+    /**
+     * @var Seo
+     */
+    protected $seoModel;
+
+    /**
+     * SeoModelObserver constructor.
+     *
+     * @param Seo $seoModel
+     */
+    public function __construct(Seo $seoModel)
+    {
+        $this->seoModel = $seoModel;
+    }
+
     public function saving(Seoable $model)
     {
-        $model->seo->validate();
+        $this->seoModel->validate();
     }
 
     /**
