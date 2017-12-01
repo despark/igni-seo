@@ -35,6 +35,10 @@ class SeoModelObserver
      */
     public function saved(Seoable $model)
     {
+        if (!$model->seo) {
+            $model->seo = $this->seoModel;
+        }
+        
         $isEmpty = true;
         $input = request()->only([
             'meta_title',
