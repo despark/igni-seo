@@ -1,17 +1,19 @@
 <?php
 
-use Despark\Cms\Models\IgniMigration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeoTable extends IgniMigration
+class CreateSeoTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create($this->getTableName('seo'), function (Blueprint $table) {
+        $tablePrefix = config('ignicms.igniTablesPrefix');
+        $tableName = $tablePrefix ? $tablePrefix . '_seo' : 'seo';
+        Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('resource_id');
             $table->string('resource_model');
@@ -30,6 +32,8 @@ class CreateSeoTable extends IgniMigration
      */
     public function down()
     {
-        Schema::dropIfExists($this->getTableName('seo'));
+        $tablePrefix = config('ignicms.igniTablesPrefix');
+        $tableName = $tablePrefix ? $tablePrefix . '_seo' : 'seo';
+        Schema::dropIfExists($tableName);
     }
 }
