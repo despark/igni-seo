@@ -18,7 +18,7 @@ class CreateSeoTable extends Migration
             $table->unsignedInteger('resource_id');
             $table->string('resource_model');
             $table->string('meta_title')->nullable()->default(null);
-            $table->string('meta_description')->nullable()->default(null);
+            $table->text('meta_description')->nullable()->default(null);
             $table->string('facebook_title')->nullable()->default(null);
             $table->string('facebook_description')->nullable()->default(null);
             $table->string('twitter_title')->nullable()->default(null);
