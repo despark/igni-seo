@@ -20,7 +20,7 @@ class Seo extends Model
 
     protected $rules = [
         'meta_title' => 'max:60',
-        'meta_description' => 'max:156',
+        'meta_description' => 'max:300',
         'facebook_title' => 'max:60',
         'facebook_description' => 'max:156',
         'twitter_title' => 'max:60',
